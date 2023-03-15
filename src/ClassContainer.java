@@ -4,29 +4,55 @@ import java.util.List;
 import java.util.Map;
 
 public class ClassContainer {
-   private final Map<String,Class> groups;
+    private final Map<String, Class> groups;
 
-    public ClassContainer(){
-        groups=new HashMap<>();
+    public Map<String, Class> getGroups() {
+        return groups;
     }
-    public void addClass(String name, int maxNumber){
-        Class newClass= new Class();
+
+    public ClassContainer() {
+        groups = new HashMap<>();
+    }
+
+    public void addClass(String groupName, int maxNumber) {
+        List<Student> listOfStudents= new ArrayList<>();
+        Class newClass = new Class(groupName, listOfStudents,maxNumber);
         newClass.setMaxNumberOfStudents(maxNumber);
 
-        groups.put(name,newClass);
+        groups.put(groupName, newClass);
     }
-    public void removeClass(String nameOfClassToRemove){
+
+    public void removeClass(String nameOfClassToRemove) {
         groups.remove(nameOfClassToRemove);
     }
-    public List<String> findEmpty(){
+
+    public List<String> findEmpty() {
         List<String> emptyClasses = new ArrayList<>();
-        for(String groupName : groups.keySet()) {
+        for (String groupName : groups.keySet()) {
             Class group = groups.get(groupName);
-            if(group.getNumberOfStudents()==0){
+            if (group.getNumberOfStudents() == 0) {
                 emptyClasses.add(groupName);
             }
         }
         return emptyClasses;
     }
 
+    @Override
+    public String toString() {
+        return "ClassContainer{" +
+                "groups=" + groups +
+                '}';
+    }
+
+    public void summary() {
+        for (String groupName : groups.keySet()) {
+            Class group = groups.get(groupName);
+            if(group!=null){
+                double percent= ((double)group.getNumberOfStudents()/group.getMaxNumberOfStudents()) *100;
+                System.out.println("Grupa: " + groupName + ", zapełnienie: " + String.format("%.2f%%", percent));
+            } else {
+                System.out.println("Grupa: " + groupName + ", zapełnienie: 0%");
+            }
+        }
+    }
 }

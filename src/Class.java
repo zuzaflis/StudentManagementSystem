@@ -6,8 +6,27 @@ public class Class {
 
     private List<Student> listOfStudents;
 
+    @Override
+    public String toString() {
+        return "Class{" +
+                "groupName='" + groupName + '\'' +
+                ", maxNumberOfStudents=" + maxNumberOfStudents +
+                ", listOfStudents=" + listOfStudents +
+                '}';
+    }
+
+    public Class(String groupName, List<Student> listOfStudents, int maxNumberOfStudents) {
+        this.groupName = groupName;
+        this.listOfStudents = listOfStudents;
+        this.maxNumberOfStudents = maxNumberOfStudents;
+    }
+
     public void setMaxNumberOfStudents(int maxNumberOfStudents) {
         this.maxNumberOfStudents = maxNumberOfStudents;
+    }
+
+    public int getMaxNumberOfStudents() {
+        return maxNumberOfStudents;
     }
 
     public int getNumberOfStudents(){
@@ -17,7 +36,7 @@ public class Class {
         if(listOfStudents.contains(newStudent)){
             System.err.println("Podany student już istnieje na liscie");
         }
-        if(listOfStudents.size()!=maxNumberOfStudents) {
+       else if(listOfStudents.size()!=maxNumberOfStudents) {
             listOfStudents.add(newStudent);
         } else System.err.println("Brak miejsca na liscie studentów");
     }
@@ -54,11 +73,15 @@ public class Class {
         }
         return count;
    }
-   public void summary(){
-        for(Student student : listOfStudents){
-            student.toString();
+    public void summary() {
+        System.out.println("Grupa: " + groupName);
+        System.out.println("Liczba studentów: " + listOfStudents.size());
+        System.out.println("Maksymalna liczba studentów: " + maxNumberOfStudents);
+        System.out.println("Studenci:");
+        for (Student student : listOfStudents) {
+            System.out.println(student.toString());
         }
-   }
+    }
    public void sortByName(){
         Comparator<Student> nameComparator= Comparator.comparing(Student::getName);
         Collections.sort(listOfStudents,nameComparator);
