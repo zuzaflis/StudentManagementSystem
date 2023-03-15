@@ -3,8 +3,16 @@ import java.util.*;
 public class Class {
     private String groupName;
     private int maxNumberOfStudents;
+
     private List<Student> listOfStudents;
 
+    public void setMaxNumberOfStudents(int maxNumberOfStudents) {
+        this.maxNumberOfStudents = maxNumberOfStudents;
+    }
+
+    public int getNumberOfStudents(){
+        return listOfStudents.size();
+    }
     public void addStudent(Student newStudent){
         if(listOfStudents.contains(newStudent)){
             System.err.println("Podany student już istnieje na liscie");
