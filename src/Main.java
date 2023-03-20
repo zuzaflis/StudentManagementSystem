@@ -3,12 +3,14 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-      Student student = new Student("zuzia", " flis", StudentCondition.PRESENT, 2022,200);
-List<Student> st = new ArrayList<>();
-//st.add(student);
-Class klasap = new Class("klaska",st,6);
-klasap.addStudent(student);
-     // klasap.summary();
+      Student student = new Student("Karol", " Kawa", StudentCondition.PRESENT, 2022,200);
+      List<Student> studentsList = new ArrayList<>();
+    //st.add(student);
+    Class klasa = new Class("klaska",studentsList,6);
+    klasa.addStudent(student);
+    klasa.addPoints(student,30.0);
+    klasa.removePoints(student,15.0);
+      klasa.summary();
 
 
       ClassContainer classContainer = new ClassContainer();
@@ -16,8 +18,8 @@ klasap.addStudent(student);
         Class grupa1 = classContainer.getGroups().get("klasa1");
 
         grupa1.addStudent(student);
-        grupa1.summary();
-        classContainer.summary();
+       // grupa1.summary();
+        //classContainer.summary();
 
 
     }

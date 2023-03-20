@@ -46,10 +46,10 @@ public class Class {
         }
     }
     public void addPoints(Student student, double points){
-        student.setPoints(points);
+        student.setPoints(student.getPoints()+points);
     }
     public void removePoints(Student student, double points){
-        student.setPoints(-points);
+        student.setPoints(student.getPoints()-points);
     }
     public void changeCondition(Student student, StudentCondition newCondition){
         student.setStudentCondition(newCondition);
