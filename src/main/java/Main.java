@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 public class Main {
     public static void main(String[] args) {
-      Student student = new Student("Karol", " Kawa", StudentCondition.PRESENT, 2022,200);
+      Student student = new Student("Karol", " Kawa", StudentCondition.PRESENT, 2022,200,"");
       List<Student> studentsList = new ArrayList<>();
     //st.add(student);
     Group klasa = new Group("klasa",studentsList,6);

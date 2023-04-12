@@ -7,6 +7,15 @@ import java.util.List;
 
 public class GroupTableModel extends AbstractTableModel {
     private List<Group> groups;
+
+    public Group getGroups(int index) {
+        return groups.get(index);
+    }
+
+    public void setGroups(List<Group> groups) {
+        this.groups = groups;
+    }
+
     private String[] columnNames = {"Group Name", "Number of Students"};
     public GroupTableModel(List<Group> groups) {
         this.groups = groups;

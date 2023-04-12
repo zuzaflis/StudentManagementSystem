@@ -30,7 +30,9 @@ public class Group {
         this.listOfStudents = listOfStudents;
         this.maxNumberOfStudents = maxNumberOfStudents;
     }
-
+    public List<Student> getStudents(){
+        return listOfStudents;
+}
     public void setMaxNumberOfStudents(int maxNumberOfStudents) {
         this.maxNumberOfStudents = maxNumberOfStudents;
     }
@@ -67,7 +69,7 @@ public class Group {
    public Student search(String lastName){
        Comparator<Student> lastNameComparator = Comparator.comparing(Student::getLastName);
        Collections.sort(listOfStudents,lastNameComparator);
-      Student studentToFind= new Student("",lastName,StudentCondition.CATCH_UP,0,0);
+      Student studentToFind= new Student("",lastName,StudentCondition.CATCH_UP,0,0, "");
        int index =Collections.binarySearch(listOfStudents, studentToFind,lastNameComparator);
 
        if(index>=0){

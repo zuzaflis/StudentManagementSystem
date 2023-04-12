@@ -20,6 +20,22 @@ public class Student implements Comparable<Student>{
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setYearOfBirth(Integer yearOfBirth) {
+        this.yearOfBirth = yearOfBirth;
+    }
+
+    public void setAlbumNumber(String albumNumber) {
+        this.albumNumber = albumNumber;
+    }
+
     public void setStudentCondition(StudentCondition studentCondition) {
         this.studentCondition = studentCondition;
     }
@@ -36,12 +52,13 @@ public class Student implements Comparable<Student>{
         return lastName;
     }
 
-    public Student(String name, String lastName, StudentCondition studentCondition, Integer yearOfBirth, double points) {
+    public Student(String name, String lastName, StudentCondition studentCondition, Integer yearOfBirth, double points, String albumNumber) {
         this.name = name;
         this.lastName = lastName;
         this.studentCondition = studentCondition;
         this.yearOfBirth = yearOfBirth;
         this.points = points;
+        this.albumNumber= albumNumber;
     }
 
     public void setPoints(double points) {
@@ -55,7 +72,8 @@ public class Student implements Comparable<Student>{
                 ", lastName='" + lastName + '\'' +
                 ", studentCondition=" + studentCondition +
                 ", yearOfBirth=" + yearOfBirth +
-                ", points=" + points +
+                ", points=" + points + ", AlbumNumber" +
+                albumNumber+
                 '}';
     }
 
