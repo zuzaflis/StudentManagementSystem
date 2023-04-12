@@ -1,3 +1,5 @@
+package main.java;
+
 public class Student implements Comparable<Student>{
     private String name;
     private String lastName;
@@ -5,6 +7,14 @@ public class Student implements Comparable<Student>{
     private Integer yearOfBirth;
     private String albumNumber;
     private double points;
+
+    public Integer getYearOfBirth() {
+        return yearOfBirth;
+    }
+
+    public String getAlbumNumber() {
+        return albumNumber;
+    }
 
     public String getName() {
         return name;

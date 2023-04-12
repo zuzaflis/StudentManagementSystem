@@ -1,3 +1,5 @@
+package main.java;
+
 public enum StudentCondition {
 CATCH_UP("catch-up"),
     SICK("sick"),

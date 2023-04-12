@@ -1,12 +1,14 @@
+package main.java;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class ClassContainer {
-    private final Map<String, Class> groups;
+    private final Map<String, Group> groups;
 
-    public Map<String, Class> getGroups() {
+    public Map<String, Group> getGroups() {
         return groups;
     }
 
@@ -16,7 +18,7 @@ public class ClassContainer {
 
     public void addClass(String groupName, int maxNumber) {
         List<Student> listOfStudents= new ArrayList<>();
-        Class newClass = new Class(groupName, listOfStudents,maxNumber);
+        Group newClass = new Group(groupName, listOfStudents,maxNumber);
         newClass.setMaxNumberOfStudents(maxNumber);
 
         groups.put(groupName, newClass);
@@ -29,7 +31,7 @@ public class ClassContainer {
     public List<String> findEmpty() {
         List<String> emptyClasses = new ArrayList<>();
         for (String groupName : groups.keySet()) {
-            Class group = groups.get(groupName);
+            Group group = groups.get(groupName);
             if (group.getNumberOfStudents() == 0) {
                 emptyClasses.add(groupName);
             }
@@ -46,7 +48,7 @@ public class ClassContainer {
 
     public void summary() {
         for (String groupName : groups.keySet()) {
-            Class group = groups.get(groupName);
+            Group group = groups.get(groupName);
             if(group!=null){
                 double percent= ((double)group.getNumberOfStudents()/group.getMaxNumberOfStudents()) *100;
                 System.out.println("Grupa: " + groupName + ", zapełnienie: " + String.format("%.2f%%", percent));

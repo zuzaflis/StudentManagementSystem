@@ -1,10 +1,20 @@
+package main.java;
+
 import java.util.*;
 
-public class Class {
+public class Group {
     private String groupName;
     private int maxNumberOfStudents;
 
     private List<Student> listOfStudents;
+
+    public String getGroupName() {
+        return groupName;
+    }
+
+    public List<Student> getListOfStudents() {
+        return listOfStudents;
+    }
 
     @Override
     public String toString() {
@@ -15,7 +25,7 @@ public class Class {
                 '}';
     }
 
-    public Class(String groupName, List<Student> listOfStudents, int maxNumberOfStudents) {
+    public Group(String groupName, List<Student> listOfStudents, int maxNumberOfStudents) {
         this.groupName = groupName;
         this.listOfStudents = listOfStudents;
         this.maxNumberOfStudents = maxNumberOfStudents;
