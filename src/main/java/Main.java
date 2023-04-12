@@ -24,14 +24,6 @@ public class Main {
         grupa1.summary();
         classContainer.summary();
 
-        JFrame frame = new JFrame("My Swing GUI");
-        frame.setSize(400, 300);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        JLabel label = new JLabel("Hello, world!");
-        frame.add(label);
-
-        frame.setVisible(true);
     }
 
-    }
+}

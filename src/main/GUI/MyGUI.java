@@ -32,20 +32,20 @@ public class MyGUI {
         studentTable = new JTable(studentTableModel);
         groupTable = new JTable(groupTableModel);
 
-        // stwórz listy
+        // listy
         studentList = new JList<>(students.toArray(new Student[0]));
         groupList = new JList<>(groups.toArray(new Group[0]));
 
-        // stwórz panel z listami
+        //  panel z listami
         JPanel listPanel = new JPanel(new GridLayout(2, 1));
         listPanel.add(new JScrollPane(studentList));
         listPanel.add(new JScrollPane(groupList));
 
-// przypisz modele do tabel
+//  modele do tabel
         studentTable.setModel(studentTableModel);
         groupTable.setModel(groupTableModel);
 
-        // stwórz panel z tabelami
+        // panel z tabelami
         JPanel tablePanel = new JPanel(new GridLayout(2, 1));
         tablePanel.add(new JScrollPane(studentTable));
         tablePanel.add(new JScrollPane(groupTable));
@@ -79,7 +79,7 @@ public class MyGUI {
             }
         });
 
-        // stwórz panel z krótkimi informacjami na temat studentów
+        // panel z krótkimi informacjami na temat studentów
         JPanel studentInfoPanel = new JPanel();
         studentInfoPanel.setLayout(new BoxLayout(studentInfoPanel, BoxLayout.Y_AXIS));
         studentInfoPanel.setBorder(BorderFactory.createTitledBorder("Selected Student"));
@@ -100,7 +100,7 @@ public class MyGUI {
         JButton sortButton = new JButton("Sort by name");
         JButton sortPointsButton = new JButton("Sort by points");
 
-        //wyswitlanie studentow z grupy na liscie i na tabeli
+        //wyswitlanie studentow z grupy na liscie i w tabeli
         groupList.addListSelectionListener(e -> {
             Group selectedGroup = groupList.getSelectedValue();
             if(selectedGroup!=null) {
@@ -168,7 +168,7 @@ public class MyGUI {
 
             Group selectedGroup = groupList.getSelectedValue();
 
-            // Utwórz nowego studenta i dodaj go do listy oraz tabeli
+            // tworzenie nowego studenta i dodanie go do listy oraz tabeli
             Student newStudent = new Student(name, lastName,studentCondition,year,points, albumNumber);
            if(selectedGroup!=null){
                selectedGroup.addStudent(newStudent);
@@ -227,7 +227,7 @@ public class MyGUI {
         buttonPanel.add(changeInfoButton);
 
 
-        // stwórz główny panel
+        // główny panel
         JPanel mainPanel = new JPanel(new GridLayout(2, 3));
        // mainPanel.add(listPanel);
         mainPanel.add(tablePanel);
@@ -237,10 +237,10 @@ public class MyGUI {
 
 
 
-        // dodaj główny panel do ramki
+        // dodanie głównego panelu do ramki
         frame.getContentPane().add(mainPanel);
 
-        // ustaw rozmiar ramki i wyświetl ją na ekranie
+        // rozmiar ramki/ wyswietlenie
         frame.pack();
         frame.setSize(1200,800);
         frame.setVisible(true);
