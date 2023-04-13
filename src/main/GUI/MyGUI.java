@@ -86,7 +86,7 @@ public class MyGUI {
         JLabel firstNameLabel = new JLabel("First Name: ");
         JLabel lastNameLabel = new JLabel("Last Name: ");
         JLabel albumLabel = new JLabel("Album Number: ");
-        JLabel pointsLabel = new JLabel("Album Number: ");
+        JLabel pointsLabel = new JLabel("Points: ");
         studentInfoPanel.add(firstNameLabel);
         studentInfoPanel.add(lastNameLabel);
         studentInfoPanel.add(albumLabel);
@@ -122,11 +122,20 @@ public class MyGUI {
         changeInfoButton.addActionListener(e->{
             int selectedRowIndex = studentTable.getSelectedRow();
             int selectedColIndex = studentTable.getSelectedColumn();
+
+            int sRowIndex = groupTable.getSelectedRow();
+            int sColIndex = groupTable.getSelectedColumn();
+
             if (selectedRowIndex >= 0) {
                 //Student selectedStudent = studentTableModel.getStudent(selectedRowIndex);
                 Object value = JOptionPane.showInputDialog("Enter value:");
                 studentTableModel.setValueAt(value,selectedRowIndex,selectedColIndex);
                 studentTableModel.fireTableDataChanged();
+            }
+            if(sRowIndex>=0){
+                Object value = JOptionPane.showInputDialog("Enter value: ");
+                groupTableModel.setValueAt(value,sRowIndex,sColIndex);
+                groupTableModel.fireTableDataChanged();
             }
         });
 

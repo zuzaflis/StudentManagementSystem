@@ -67,13 +67,13 @@ public class StudentTableModel extends AbstractTableModel {
                 student.setLastName((String) value);
                 break;
             case 2:
-                student.setYearOfBirth((Integer) value);
+                student.setYearOfBirth(Integer.parseInt((String) value));
                 break;
             case 3:
                 student.setAlbumNumber((String) value);
                 break;
             case 4:
-                student.setPoints((double) value);
+                student.setPoints(Double.parseDouble((String)value));
                 break;
             case 5:
                 student.setStudentCondition((StudentCondition) value);

@@ -16,7 +16,7 @@ public class GroupTableModel extends AbstractTableModel {
         this.groups = groups;
     }
 
-    private String[] columnNames = {"Group Name", "Number of Students"};
+    private String[] columnNames = {"Group Name","Max number of Students", "Number of Students"};
     public GroupTableModel(List<Group> groups) {
         this.groups = groups;
     }
@@ -40,9 +40,28 @@ public class GroupTableModel extends AbstractTableModel {
             case 0:
                 return group.getGroupName();
             case 1:
+                return group.getMaxNumberOfStudents();
+            case 2:
                 return group.getListOfStudents().size();
             default:
                 throw new IllegalArgumentException("Invalid column index");
         }
     }
+    @Override
+    public void setValueAt( Object value, int row, int col) {
+        Group group = getGroups(row);
+        switch (col){
+            case 0:
+                group.setGroupName((String) value);
+                break;
+            case 1:
+                group.setMaxNumberOfStudents(Integer.parseInt((String) value));
+                break;
+            default:
+                throw new IllegalArgumentException("Invalid column index");
+        }
+        fireTableCellUpdated(row, col); // odświeżenie widoku
+
+    }
+
 }
