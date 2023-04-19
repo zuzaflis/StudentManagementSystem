@@ -73,8 +73,8 @@ public class MyGUI {
         });
         resetButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                filterTextBox.setText(""); // wyzeruj filtr
-                studentTableModel.setStudents(students); // usuń filtr z tabeli
+                filterTextBox.setText(""); // wyzeruj
+                studentTableModel.setStudents(students); // usuń
                 studentTableModel.fireTableDataChanged(); // odśwież tabelę
             }
         });
@@ -111,7 +111,7 @@ public class MyGUI {
 
         groupTable.getSelectionModel().addListSelectionListener(e -> {
             int selectedRowIndex = groupTable.getSelectedRow();
-            if (selectedRowIndex != -1) { // upewnij się, że jest wybrany wiersz
+            if (selectedRowIndex != -1) {
                 Group selectedGroup = groupTableModel.getGroups(selectedRowIndex);
                 List<Student> groupStudents = selectedGroup.getStudents();
                 studentTableModel.setStudents(groupStudents);
@@ -167,7 +167,7 @@ public class MyGUI {
         });
 
         addStudentButton.addActionListener(e -> {
-            // Wyświetl okno dialogowe z formularzem do dodawania nowego studenta
+            // okno dialogowe z formularzem do dodawania nowego studenta
             String name = JOptionPane.showInputDialog("Enter student name:");
             String lastName = JOptionPane.showInputDialog("Enter student last name:");
             StudentCondition studentCondition = StudentCondition.valueOf(JOptionPane.showInputDialog("Enter Student Condition:"));
